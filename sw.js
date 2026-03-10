@@ -1,4 +1,4 @@
-const CACHE_NAME = 'poop3-adv-v1';
+const CACHE_NAME = 'poop3-adv-v2';
 const urlsToCache = [
   './',
   './index.html',
