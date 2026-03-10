@@ -39,7 +39,7 @@ self.addEventListener('fetch', event => {
         
         return fetch(event.request).then(response => {
           // Don't cache non-successful responses
-          if (!response || response.status !== 200 || response.status !== 304) {
+          if (!response || (response.status !== 200 && response.status !== 304)) {
             return response;
           }
           

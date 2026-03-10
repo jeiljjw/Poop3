@@ -638,7 +638,7 @@
     <div id="adfit-bottom" style="width:95vw;max-width:640px;margin:0 auto;left:50%;transform:translateX(-50%);text-align:center;position:fixed;bottom:0;z-index:9999;background:transparent;">
         <ins class="kakao_ad_area" style="display:block;margin:0 auto;" data-ad-unit="DAN-GkezketT7aC30wJ1" data-ad-width="320" data-ad-height="50" data-ad-onfail="adBottomNoAdCallback"></ins>
     </div>
-    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async onerror="adScriptError()"></script>
     <script type="text/javascript">
       function adTopNoAdCallback(arg1) {
         var topDiv = document.getElementById('adfit-top');
@@ -647,6 +647,14 @@
       function adBottomNoAdCallback(arg1) {
         var bottomDiv = document.getElementById('adfit-bottom');
         if (bottomDiv) bottomDiv.style.display = 'none';
+      }
+      function adScriptError() {
+        // 스크립트 로드 실패 시广告 숨기기
+        var topDiv = document.getElementById('adfit-top');
+        var bottomDiv = document.getElementById('adfit-bottom');
+        if (topDiv) topDiv.style.display = 'none';
+        if (bottomDiv) bottomDiv.style.display = 'none';
+        console.log('Ad script failed to load, hiding ad units');
       }
     </script>
     
