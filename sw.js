@@ -1,4 +1,4 @@
-const CACHE_NAME = 'poop3-adv-v2';
+const CACHE_NAME = 'poop3-adv-v3';
 const urlsToCache = [
   './',
   './index.html',
@@ -29,6 +29,16 @@ self.addEventListener('install', event => {
 
 // Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', event => {
+  // Only handle GET requests in the service worker
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // Truly skip cross-origin requests (let the browser handle them)
+  if (!event.request.url.startsWith(self.location.origin)) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then(response => {
