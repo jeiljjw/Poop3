@@ -2,7 +2,7 @@
   "name": "Poop3 adv",
   "short_name": "Poop3",
   "description": "A fun game where you dodge falling poops! Avoid the poops to score points.",
-  "start_url": "/Poop2/",
+  "start_url": "/Poop3/",
   "display": "standalone",
   "background_color": "#1a1a2e",
   "theme_color": "#81D4FA",
